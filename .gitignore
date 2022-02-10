@@ -1,0 +1,9 @@
+# Compiled Object files
+*.o
+
+# Compiled Module files
+*.mod
+
+# Backup files
+*~
+
