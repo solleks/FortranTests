@@ -56,15 +56,20 @@ contains
     if (l == m) then
        val = pmm
     else
-       oldfact = sqrt(2.0 * m + 3.0)
-       do ll = m + 2, l
-          fact = sqrt((4.0 * ll * ll - 1.0)/(ll * ll - m * m))
-          pll = (x * pnmp1 - pmm/oldfact) * fact
-          oldfact = fact
-          pmm = pnmp1
-          pnmp1 = pll
-       end do
-       val = pll
+       pnmp1 = x * sqrt(2.0 * m + 3.0) * pmm
+       if (l == (m + 1)) then
+          val = pnmp1
+       else
+          oldfact = sqrt(2.0 * m + 3.0)
+          do ll = m + 2, l
+             fact = sqrt((4.0 * ll * ll - 1.0)/(ll * ll - m * m))
+             pll = (x * pnmp1 - pmm/oldfact) * fact
+             oldfact = fact
+             pmm = pnmp1
+             pnmp1 = pll
+          end do
+          val = pll
+       end if
     end if
   end function evaluate
   
