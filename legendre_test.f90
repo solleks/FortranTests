@@ -7,18 +7,20 @@ module legendre_test
 contains
 
   subroutine run()
+    integer :: i
     integer :: l
     integer :: m
-    real :: x
+    real :: xs(4)
+
+    xs = [0.0, 0.25, 0.5, 1.0]
 
     print *, 'Run Legendre tests'
 
     do l = 0, 4
        do m = 0, l
-          print *, 'P(', l, ',', m, ',', 0.0, ')', evaluate(l, m, 0.0)
-          print *, 'P(', l, ',', m, ',', 0.25, ')', evaluate(l, m, 0.25)
-          print *, 'P(', l, ',', m, ',', 0.5, ')', evaluate(l, m, 0.5)
-          print *, 'P(', l, ',', m, ',', 1.0, ')', evaluate(l, m, 1.0)
+          do i = 1, 4
+             print *, 'P(', l, ',', m, ',', xs(i), ')', evaluate(l, m, xs(i))
+          end do
           print *, ''
        end do
     end do
