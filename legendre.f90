@@ -49,7 +49,7 @@ contains
 
     pmm = sqrt((2.0 * m + 1.0) * pmm/(4.0 * PI))
 
-    if (and(m, 1) == 1) then
+    if (iand(m, 1) == 1) then
        pmm = -pmm
     end if
 
